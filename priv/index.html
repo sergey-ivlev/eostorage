@@ -8,17 +8,19 @@
         $("#btn_post").click(function(){
             var vkey = $("#key").val();
             var vvalue = $("#value").val();
-        if(vkey=='' && vvalue==''){
+            var ttlvalue = $("#ttl").val();
+        if(vkey=='' && vvalue=='' && ttlvalue==''){
             alert("Please fill out the form");
         }
         else if(vkey=='' && vvalue!==''){alert('Key field is required')}
         else if(vvalue=='' && vkey!==''){alert('Value field is required')}
         else {
-            $.post("/storage",
-                {
+            data = {
                     key:vkey,
                     value:vvalue
-                },
+                }
+            if(ttlvalue!='') data.ttl = ttlvalue
+            $.post("/storage", data,
                 function(response, status){
                     alert("*----Received Data----*\n\nResponse : " + response+"\n\nStatus : " + status);
                 });
@@ -49,6 +51,8 @@
                     <input type="text" name="key" id="key" placeholder="key"/><br></div>
                 <div id="valuediv"><label>Value</label>
                     <input type="text" name="value" id="value" placeholder="value"/></div>
+                <div id="ttldiv"><label>Ttl (in seconds)</label>
+                    <input type="text" name="value" id="ttl" placeholder="ttl"/></div>
             </form>
             <button id="btn_post">Update</button>
             <hr>

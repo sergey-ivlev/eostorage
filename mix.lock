@@ -1,7 +1,6 @@
 %{"cowboy": {:git, "https://github.com/ninenines/cowboy.git", "3d9078018d7f0a83a359b70c698d35e35fbb94f9", [tag: "1.0.1"]},
   "cowlib": {:git, "git://github.com/ninenines/cowlib.git", "d544a494af4dbc810fc9c15eaf5cc050cced1501", [ref: "1.0.0"]},
-  "etslib": {:git, "https://github.com/sergey-ivlev/etslib.git", "0d8d2a6e8ef946c2458f2164e80229479c8607e0", [branch: "master"]},
-  "ex2ms": {:hex, :ex2ms, "1.4.0", "e43b410888b45ba363ea6650db3736db3e455a0a412ec244ac633fede857bcb2", [:mix], []},
+  "etslib": {:git, "https://github.com/sergey-ivlev/etslib.git", "063b133da09eb4f54d9570cb4bf00a3724e44e1e", [branch: "master"]},
   "httpotion": {:hex, :httpotion, "3.0.0", "4ce0af28f4254bdd0457d0fe065a83787751e0a5b5f5d27030948253be38df5c", [:mix], [{:ibrowse, "~> 4.2", [hex: :ibrowse, optional: false]}]},
   "ibrowse": {:hex, :ibrowse, "4.2.2", "b32b5bafcc77b7277eff030ed32e1acc3f610c64e9f6aea19822abcadf681b4b", [:rebar3], []},
   "jsx": {:git, "https://github.com/sergey-ivlev/jsx.git", "7258ab9851a0447adc4d95c1e806763f551be152", [branch: "develop"]},

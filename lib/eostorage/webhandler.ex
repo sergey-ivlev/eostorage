@@ -27,20 +27,31 @@ defmodule Eostorage.Webhandler do
       {:ok, postVals, req2} = :cowboy_req.body_qs(req)
       key = :proplists.get_value(<<"key">>, postVals)
       value = :proplists.get_value(<<"value">>, postVals)
-      create(key, value, req2)
+      ttl = :proplists.get_value(<<"ttl">>, postVals)
+      case ttl do
+       :undefined ->
+            create(key, value, ttl, req2)
+        _ ->
+            case Integer.parse(ttl, 10) do
+                {intttl, _} -> create(key, value, intttl, req2)
+                :error ->
+                    :cowboy_req.reply(400, [], <<"Wrong ttl parameter.">>, req)
+             end
+      end
+
   end
   defp process_post(false, req) do
       :cowboy_req.reply(400, [], <<"Missing body.">>, req)
   end
 
-  defp create(:undefined, _, req) do
+  defp create(:undefined, _, _, req) do
       :cowboy_req.reply(400, [], <<"Missing key parameter.">>, req)
   end
-  defp create(_, :undefined, req) do
+  defp create(_, :undefined, _, req) do
       :cowboy_req.reply(400, [], <<"Missing value parameter.">>, req)
   end
-  defp create(key, value, req) do
-      case :etslib.put(:storage, key, value) do
+  defp create(key, value, ttl, req) do
+      case :etslib.put(:storage, key, value, ttl) do
           :ok ->
               :cowboy_req.reply(201, [
                   {<<"content-type">>, <<"text/plain; charset=utf-8">>}
@@ -78,4 +89,5 @@ defmodule Eostorage.Webhandler do
             <<>>
     end
   end
+
 end
