@@ -4,5 +4,5 @@
   "ex2ms": {:hex, :ex2ms, "1.4.0", "e43b410888b45ba363ea6650db3736db3e455a0a412ec244ac633fede857bcb2", [:mix], []},
   "httpotion": {:hex, :httpotion, "3.0.0", "4ce0af28f4254bdd0457d0fe065a83787751e0a5b5f5d27030948253be38df5c", [:mix], [{:ibrowse, "~> 4.2", [hex: :ibrowse, optional: false]}]},
   "ibrowse": {:hex, :ibrowse, "4.2.2", "b32b5bafcc77b7277eff030ed32e1acc3f610c64e9f6aea19822abcadf681b4b", [:rebar3], []},
-  "jsx": {:git, "https://github.com/talentdeficit/jsx.git", "3074d4865b3385a050badf7828ad31490d860df5", [tag: "2.8.0"]},
+  "jsx": {:git, "https://github.com/sergey-ivlev/jsx.git", "7258ab9851a0447adc4d95c1e806763f551be152", [branch: "develop"]},
   "ranch": {:git, "git://github.com/ninenines/ranch.git", "adf1822defc2b7cfdc7aca112adabfa1d614043c", [ref: "1.0.0"]}}

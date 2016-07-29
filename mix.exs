@@ -31,14 +31,14 @@ defmodule Eostorage.Mixfile do
   end
   defp deps :test do
     [{:cowboy, git: "https://github.com/ninenines/cowboy.git", tag: "1.0.1"},
-     {:jsx, git: "https://github.com/talentdeficit/jsx.git", tag: "2.8.0"},
+     {:jsx, git: "https://github.com/sergey-ivlev/jsx.git", branch: "develop"},
      {:etslib, git: "https://github.com/sergey-ivlev/etslib.git", branch: "master"},
      {:httpotion, "~> 3.0.0"}
      ]
   end
   defp deps _ do
     [{:cowboy, git: "https://github.com/ninenines/cowboy.git", tag: "1.0.1"},
-     {:jsx, git: "https://github.com/talentdeficit/jsx.git", tag: "2.8.0"},
+     {:jsx, git: "https://github.com/sergey-ivlev/jsx.git", branch: "develop"},
      {:etslib, git: "https://github.com/sergey-ivlev/etslib.git", branch: "master"}
      ]
   end
