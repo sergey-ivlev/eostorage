@@ -19,8 +19,8 @@ defmodule Eostorage.Mixfile do
   def application do
     [applications: app(Mix.env),
      mod: {Eostorage, []},
-     env: [ttl: 5, check_timeout: 1]]
-    #value of ttl: 5, check_timeout: 1 in seconds here
+     env: [ttl: 5000, check_timeout: 250]]
+    #value of ttl: 5000, check_timeout: 250 in miliseconds here
   end
 
   defp app :test do
