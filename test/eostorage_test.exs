@@ -28,7 +28,7 @@ defmodule EostorageTest do
       # ttl test (with ttl custom value 3 seconds)
       header = [{"Accept", "application/json"},
                         {"Content-Type", "application/json"}]
-      body = <<"key=somekey2&value=somevalue2&ttl=3">>
+      body = <<"key=somekey2&value=somevalue2&ttl=3000">>
       response = HTTPotion.post "localhost:8080/storage", [body: body, headers: header]
       assert response.status_code == 201
       response = HTTPotion.get "localhost:8080/storage?key=somekey2"
