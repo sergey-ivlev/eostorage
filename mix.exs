@@ -30,16 +30,13 @@ defmodule Eostorage.Mixfile do
     [:logger, :cowboy]
   end
   defp deps :test do
-    [{:cowboy, git: "https://github.com/ninenines/cowboy.git", tag: "1.0.1"},
-     {:jsx, git: "https://github.com/sergey-ivlev/jsx.git", branch: "develop"},
-     {:etslib, git: "https://github.com/sergey-ivlev/etslib.git", branch: "master"},
-     {:httpotion, "~> 3.0.0"}
-     ]
+    [{:httpotion, "~> 3.0.0"} | deps(:def)]
   end
   defp deps _ do
     [{:cowboy, git: "https://github.com/ninenines/cowboy.git", tag: "1.0.1"},
      {:jsx, git: "https://github.com/sergey-ivlev/jsx.git", branch: "develop"},
-     {:etslib, git: "https://github.com/sergey-ivlev/etslib.git", branch: "master"}
+     {:etslib, git: "https://github.com/sergey-ivlev/etslib.git", branch: "master"},
+     {:elixir_monad, git: "https://github.com/nickmeharry/elixir-monad.git", app: false}
      ]
   end
 
