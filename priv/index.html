@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("#btn_post").click(function(){
+            var vkey = $("#key").val();
+            var vvalue = $("#value").val();
+        if(vkey=='' && vvalue==''){
+            alert("Please fill out the form");
+        }
+        else if(vkey=='' && vvalue!==''){alert('Key field is required')}
+        else if(vvalue=='' && vkey!==''){alert('Value field is required')}
+        else {
+            $.post("/storage",
+                {
+                    key:vkey,
+                    value:vvalue
+                },
+                function(response, status){
+                    alert("*----Received Data----*\n\nResponse : " + response+"\n\nStatus : " + status);
+                });
+            }
+        });
+        $("#btn_check").click(function(){
+            var vcheckkey = $("#checkkey").val();
+        if(vcheckkey==''){
+            alert("Key field is required");
+        }
+        else {
+            $.get("/storage?key="+vcheckkey,
+                function(response, status){
+                    alert("*----Received Data----*\n\nResponse : " + response+"\n\nStatus : " + status);
+                });
+            }
+        });
+    });
+</script>
+</head>
+    <body>
+        <h2>Simply key/value storage interface </h2>
+        <div id="create">
+            <hr>
+            <h3>Update key with value </h3>
+            <form id="form" method="post">
+                <div id="keydiv"><label>Key</label>
+                    <input type="text" name="key" id="key" placeholder="key"/><br></div>
+                <div id="valuediv"><label>Value</label>
+                    <input type="text" name="value" id="value" placeholder="value"/></div>
+            </form>
+            <button id="btn_post">Update</button>
+            <hr>
+        </div>
+        <div id="check">
+            <hr>
+            <h3>Check key</h3>
+            <form id="formget" method="get">
+                <div id="getkeydiv"><label>Key</label>
+                    <input type="text" name="checkkey" id="checkkey" placeholder="key"/><br></div>
+            </form>
+            <button id="btn_check">Check key</button>
+            <hr>
+        </div>
+    </body>
+</html>
